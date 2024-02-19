@@ -35,9 +35,10 @@ awk -v input_file="$fn" 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf(
 ### (4) Use grep to check how many fasta sequences are in all of the .fna files and redirect this to a file in RAW_DATA called 'log.txt'
 ###     Hints on grep: -c counts and you can grep multiple files at once using the *. 
 
-grep -c '> RAW_DATA/log.txt
+grep -c '>' RAW_DATA/*.fna > RAW_DATA/log.txt
 
 ### (5) Print the output of log.txt to the terminal 
+cat log.txt
 
 
 
