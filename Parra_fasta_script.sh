@@ -53,9 +53,10 @@ cat log.txt
 for f in my*fna
 do
     echo $f
+    awk 'BEGIN{RS=">"}{gsub("\n","",$0); print ">"$0}' "$f" > "${f}.txt"
 done
 
-#awk 'BEGIN{RS=">"}{gsub("\n","",$0); print ">"$0}' myseq50000.fna > myseq50000.fna.txt
+
 
 
 ### (7) Use a for loop to count all the instances of the following string in all of the .fna.txt files:
@@ -66,19 +67,21 @@ done
 for fn in my*fna.txt
 do
     echo $fn >> log.txt
+    grep -o 'CACCCTCTCAGGTCGGCTACGCATCGTCGCC' "$fn" | wc -l >> log.txt
 done
+cat log.txt
 
 
 ### (8) Move all the .fna.txt files to the directory ~/P_DATA
-
+mv *.fna.txt ~/P_DATA
 
 
 ### (9) Make a tar archive of the files in P_DATA - call it pdata.tar
-
+tar pdata.tar ~/P_DATA
 
 
 ### (10) Compress pdata.tar
-
+gzip pdata.tar
 
 
 
