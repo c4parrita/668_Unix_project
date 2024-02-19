@@ -29,7 +29,7 @@ echo $fn
 ###     The other problem is that it works on the wrong file. Change it so that it works with the user input file (see echo above) (hint: how do you call variables in AWK commands???).
 ###     Change these things and you should get 3 to 4 output files starting with 'myseq'
 
-awk -v input_file="$fn" 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf("myseq%d.fa",n_seq);} print >> file; n_seq++; next;} { print > file; }' "$fn"
+awk -v input_file="$fn" 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf("myseq%d.fna",n_seq);} print >> file; n_seq++; next;} { print > file; }' "$fn"
 
 
 ### (4) Use grep to check how many fasta sequences are in all of the .fna files and redirect this to a file in RAW_DATA called 'log.txt'
@@ -38,7 +38,7 @@ awk -v input_file="$fn" 'BEGIN {n_seq=0;} /^>/ {if(n_seq%50000==0){file=sprintf(
 grep -c '>' RAW_DATA/*.fna > RAW_DATA/log.txt
 
 ### (5) Print the output of log.txt to the terminal 
-cat log.txt
+cat ~/RAW_DATA/log.txt
 
 
 
@@ -50,7 +50,7 @@ cat log.txt
 
 ### More information on for loops can be found at: https://www.cyberciti.biz/faq/bash-loop-over-file/
 
-for f in my*fna
+for f in my*fna;
 do
     echo $f
     awk 'BEGIN{RS=">"}{gsub("\n","",$0); print ">"$0}' "$f" > "${f}.txt"
@@ -64,12 +64,12 @@ done
 ###     Also, like in (4) have the grep results for all files appended to log.txt (DON'T OVERWRITE IT)
 ###       then show the contents of log.txt in the terminal
 
-for fn in my*fna.txt
+for fn in *fna.txt
 do
     echo $fn >> log.txt
     grep -o 'CACCCTCTCAGGTCGGCTACGCATCGTCGCC' "$fn" | wc -l >> log.txt
 done
-cat log.txt
+cat ~/RAW_DATA/log.txt
 
 
 ### (8) Move all the .fna.txt files to the directory ~/P_DATA
