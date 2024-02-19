@@ -1,4 +1,4 @@
-
+#!/bin/bash
 ### Make this a bash script that can be executed by putting
 ### a "shebang" at the top of the file
 
@@ -6,9 +6,11 @@ echo "It works!"
 
 
 ### (1) In your home directory make a directory called RAW_DATA
+mkdir ~/RAW_DATA
 
 ### (2) Copy all .fna fasta files  
 ###     from home directory into RAW_DATA (must work from any directory.)
+cp ~/.fna ~/RAW_DATA
 
 ### (3) Do the same with all primer files ending with .csv
 
