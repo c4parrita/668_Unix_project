@@ -10,7 +10,7 @@ mkdir ~/RAW_DATA
 
 ### (2) Copy all .fna fasta files  
 ###     from home directory into RAW_DATA (must work from any directory.)
-cp ~/668_Unix_project/*.fna ~/RAW_DATA
+cp ~/668_Unix_project/*.fna.* ~/RAW_DATA
 
 ### (3) Do the same with all primer files ending with .csv
 cp ~/668_Unix_project/*.csv ~/RAW_DATA
