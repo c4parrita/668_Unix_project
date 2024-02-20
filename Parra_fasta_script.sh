@@ -77,11 +77,11 @@ mv *.fna.txt ~/P_DATA
 
 
 ### (9) Make a tar archive of the files in P_DATA - call it pdata.tar
-tar pdata.tar ~/P_DATA
+tar -cf pdata.tar ~/P_DATA
 
 
 ### (10) Compress pdata.tar
-gzip ~/P_DATA/pdata.tar
+gzip pdata.tar
 
 
 
