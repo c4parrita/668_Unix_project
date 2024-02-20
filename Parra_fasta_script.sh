@@ -81,7 +81,7 @@ tar pdata.tar ~/P_DATA
 
 
 ### (10) Compress pdata.tar
-gzip pdata.tar
+gzip ~/P_DATA/pdata.tar
 
 
 
