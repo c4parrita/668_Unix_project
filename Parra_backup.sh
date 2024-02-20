@@ -34,7 +34,7 @@ fi
 #     https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php
 
 for file in "$1"/*; do
-  if [-f "$file"]; then
+  if [ -f "$file" ]; then
     cp "$file" "$HOME/BACKUP_FILES"
     echo "$fn copied to $HOME/BACKUP_FILES"
   fi
