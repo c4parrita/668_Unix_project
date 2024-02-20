@@ -19,7 +19,7 @@
 #  HINT: https://www.cyberciti.biz/faq/howto-check-if-a-directory-exists-in-a-bash-shellscript/
 
 #  Note: you can use the $HOME variable in bash like this $HOME/BACKUP_FILES
-if[! -d "$HOME/BACKUP_FILES"]; then
+if [ ! -d "$HOME/BACKUP_FILES" ]; then
   mkdir "$HOME/BACKUP_FILES"
   echo "Created BACKUP_FILES in $HOME directory"
 else
